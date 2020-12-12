@@ -15,7 +15,9 @@ class Range {
           .replaceAll('[', '')
           .replaceAll(']', '')
           .replaceAll('(', '')
-          .replaceAll(')', '');
+          .replaceAll(')', '')
+          .replaceAll('{', '')
+          .replaceAll('}', '');
       pList.add(int.parse(i));
     }
 
@@ -27,6 +29,23 @@ class Range {
     }
 
     return pList;
+  }
+
+  bool Contains(String intervalo, String conjunto) {
+    bool respuesta = true;
+    List interval = AddRange(intervalo);
+    List conjunto1;
+    List conjunto2 = AddRange(conjunto);
+    int iterador = interval[0];
+    for (int i = 0; i < interval[1] + 1; i++) {
+      iterador++;
+      conjunto1.add(iterador);
+    }
+    if (conjunto1.contains(conjunto2)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   bool ContainsRange(String intervalo, String segundaLista) {

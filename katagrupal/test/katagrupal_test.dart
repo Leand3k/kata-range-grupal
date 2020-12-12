@@ -3,6 +3,31 @@ import 'package:test/test.dart';
 import '../bin/katagrupal.dart';
 
 void main() {
+  test('Contains', () {
+    Range range = new Range();
+
+    var actual = "[3,7)";
+    var conjunto = "{5,6}";
+    var expected = true;
+    expect(range.ContainsRange(actual, conjunto), expected);
+  });
+  test('Contains', () {
+    Range range = new Range();
+
+    var actual = "[3,7)";
+    var conjunto = "{3,4}";
+    var expected = true;
+    expect(range.ContainsRange(actual, conjunto), expected);
+  });
+  test('Contains', () {
+    Range range = new Range();
+
+    var actual = "[3,7)";
+    var conjunto = "{7,8}";
+    var expected = false;
+    expect(range.ContainsRange(actual, conjunto), expected);
+  });
+
   test('containsRange1', () {
     Range range = new Range();
 
@@ -72,6 +97,14 @@ void main() {
 
   test('endPoints3', () {
     Range range = new Range();
+    String intervalo = "[1,9]";
+    var actual = range.endPoints(intervalo);
+    var expected = '1, 9';
+    expect(actual, expected);
+  });
+
+  test('endPoints3', () {
+    Range range = new Range();
     String intervalo = "[290,500]";
     var actual = range.endPoints(intervalo);
     var expected = '290, 500';
@@ -119,6 +152,26 @@ void main() {
     Range range = new Range();
     List intervalo = range.AddRange("[2,9)");
     List intervalo2 = range.AddRange("[4,6)");
+
+    var actual = range.equals(intervalo, intervalo2);
+    var expected = false;
+    expect(actual, expected);
+  });
+
+  test('not equals1', () {
+    Range range = new Range();
+    List intervalo = range.AddRange("[3,6)");
+    List intervalo2 = range.AddRange("[7,10)");
+
+    var actual = range.equals(intervalo, intervalo2);
+    var expected = false;
+    expect(actual, expected);
+  });
+
+  test('not equals2', () {
+    Range range = new Range();
+    List intervalo = range.AddRange("[5,7)");
+    List intervalo2 = range.AddRange("[9,10)");
 
     var actual = range.equals(intervalo, intervalo2);
     var expected = false;
