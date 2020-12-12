@@ -106,4 +106,22 @@ void main() {
     var expected = false;
     expect(actual, expected);
   });
+  test('equals1', () {
+    Range range = new Range();
+    List intervalo = range.AddRange("[3,5)");
+    List intervalo2 = range.AddRange("[3,5)");
+
+    var actual = range.equals(intervalo, intervalo2);
+    var expected = true;
+    expect(actual, expected);
+  });
+  test('equals2', () {
+    Range range = new Range();
+    List intervalo = range.AddRange("[2,9)");
+    List intervalo2 = range.AddRange("[4,6)");
+
+    var actual = range.equals(intervalo, intervalo2);
+    var expected = false;
+    expect(actual, expected);
+  });
 }

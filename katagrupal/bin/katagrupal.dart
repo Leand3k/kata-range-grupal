@@ -89,4 +89,13 @@ class Range {
       return false;
     }
   }
+
+  bool equals(List intervalo, List intervalo2) {
+    if (intervalo.first == intervalo2.first &&
+        intervalo.last == intervalo2.last) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
