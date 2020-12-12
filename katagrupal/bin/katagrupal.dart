@@ -53,4 +53,28 @@ class Range {
 
     return x;
   }
+
+  String endPoints(String Interval) {
+    var i;
+    var pList = new List();
+    var x = Interval.split(',');
+
+    for (int a = 0; a < x.length; a++) {
+      i = x[a]
+          .replaceAll('[', '')
+          .replaceAll(']', '')
+          .replaceAll('(', '')
+          .replaceAll(')', '');
+      pList.add(i);
+    }
+
+    if (Interval[0] == '(') {
+      pList.first += 1;
+    }
+    if (Interval[Interval.length - 1] == ')') {
+      pList.last -= 1;
+    }
+
+    return pList.toString().replaceAll('[', '').replaceAll(']', '');
+  }
 }

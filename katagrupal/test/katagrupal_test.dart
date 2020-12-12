@@ -53,4 +53,28 @@ void main() {
     List expected = [4, 5, 6, 7, 8, 9];
     expect(actual, expected);
   });
+  //endPoints
+  test('endPoints', () {
+    Range range = new Range();
+    String intervalo = "[1,5]";
+    var actual = range.endPoints(intervalo);
+    var expected = '1, 5';
+    expect(actual, expected);
+  });
+
+  test('endPoints2', () {
+    Range range = new Range();
+    String intervalo = "[5,9]";
+    var actual = range.endPoints(intervalo);
+    var expected = '5, 9';
+    expect(actual, expected);
+  });
+
+  test('endPoints3', () {
+    Range range = new Range();
+    String intervalo = "[290,500]";
+    var actual = range.endPoints(intervalo);
+    var expected = '290, 500';
+    expect(actual, expected);
+  });
 }
