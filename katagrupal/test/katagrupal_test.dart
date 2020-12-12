@@ -24,4 +24,33 @@ void main() {
     var expected = true;
     expect(range.ContainsRange(actual, "[7,8]"), expected);
   });
+
+  test('allPoints1', () {
+    Range range = new Range();
+    String intervalo = "(2,7)";
+    List f = (range.AddRange(intervalo));
+
+    var actual = range.getAllPoints(f);
+    List expected = [3, 4, 5, 6];
+    expect(actual, expected);
+  });
+
+  test('allPoints2', () {
+    Range range = new Range();
+    String intervalo = "(1,5)";
+    List f = (range.AddRange(intervalo));
+
+    var actual = range.getAllPoints(f);
+    List expected = [2, 3, 4];
+    expect(actual, expected);
+  });
+  test('allPoints3', () {
+    Range range = new Range();
+    String intervalo = "[4,10)";
+    List f = (range.AddRange(intervalo));
+
+    var actual = range.getAllPoints(f);
+    List expected = [4, 5, 6, 7, 8, 9];
+    expect(actual, expected);
+  });
 }

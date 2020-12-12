@@ -19,6 +19,13 @@ class Range {
       pList.add(int.parse(i));
     }
 
+    if (Interval[0] == '(') {
+      pList.first += 1;
+    }
+    if (Interval[Interval.length - 1] == ')') {
+      pList.last -= 1;
+    }
+
     return pList;
   }
 
@@ -35,5 +42,15 @@ class Range {
     }
 
     return respuesta;
+  }
+
+  List getAllPoints(List l) {
+    var x = new List();
+
+    for (int i = l.first; i <= l.last; i++) {
+      x.add(i);
+    }
+
+    return x;
   }
 }
