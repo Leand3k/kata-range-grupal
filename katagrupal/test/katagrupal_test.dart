@@ -77,4 +77,33 @@ void main() {
     var expected = '290, 500';
     expect(actual, expected);
   });
+  //overlapsRange
+  test('overlapsRange1', () {
+    Range range = new Range();
+    List intervalo = range.AddRange("[2,5)");
+    List intervalo2 = range.AddRange("[8,16)");
+
+    var actual = range.overlapsRange(intervalo, intervalo2);
+    var expected = false;
+    expect(actual, expected);
+  });
+
+  test('overlapsRange2', () {
+    Range range = new Range();
+    List intervalo = range.AddRange("[4,5)");
+    List intervalo2 = range.AddRange("[5,7)");
+
+    var actual = range.overlapsRange(intervalo, intervalo2);
+    var expected = false;
+    expect(actual, expected);
+  });
+  test('overlapsRange3', () {
+    Range range = new Range();
+    List intervalo = range.AddRange("[3,5)");
+    List intervalo2 = range.AddRange("[4,11)");
+
+    var actual = range.overlapsRange(intervalo, intervalo2);
+    var expected = false;
+    expect(actual, expected);
+  });
 }

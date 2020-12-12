@@ -75,6 +75,18 @@ class Range {
       pList.last -= 1;
     }
 
+    //(3, 6) => {4,5}
+    //[3,6] => (3,4,5,6)
+
     return pList.toString().replaceAll('[', '').replaceAll(']', '');
+  }
+
+  bool overlapsRange(List intervalo, List intervalo2) {
+    if (intervalo.first > intervalo2.first &&
+        intervalo.last < intervalo2.last) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
